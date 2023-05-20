@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		787467FF2A128BA300A3BC2A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787467FE2A128BA300A3BC2A /* GLUT.framework */; };
 		787468062A128F0100A3BC2A /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 787468052A128F0100A3BC2A /* libGLEW.2.2.0.dylib */; };
-		7892C63C2A15055000DD02BA /* Keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7892C63A2A15055000DD02BA /* Keyboard.cpp */; };
+		7892C6452A15B82100DD02BA /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6442A15B82100DD02BA /* Log.cpp */; };
+		7892C6472A15C12500DD02BA /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6462A15C12500DD02BA /* Logger.cpp */; };
 		78F6CF362A1004AE007D706F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F6CF352A1004AD007D706F /* OpenGL.framework */; };
 		78F6CF382A1004FE007D706F /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F6CF372A1004FE007D706F /* libglfw.3.3.dylib */; };
 		78F6CF452A10373A007D706F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78F6CF432A10373A007D706F /* main.cpp */; };
@@ -30,8 +31,10 @@
 /* Begin PBXFileReference section */
 		787467FE2A128BA300A3BC2A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		787468052A128F0100A3BC2A /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../../../../../opt/homebrew/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
-		7892C63A2A15055000DD02BA /* Keyboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Keyboard.cpp; sourceTree = "<group>"; };
-		7892C63B2A15055000DD02BA /* Keyboard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Keyboard.hpp; sourceTree = "<group>"; };
+		7892C63E2A15A3D000DD02BA /* Logger.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Logger.hpp; sourceTree = "<group>"; };
+		7892C6412A15B42B00DD02BA /* Log.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Log.hpp; sourceTree = "<group>"; };
+		7892C6442A15B82100DD02BA /* Log.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
+		7892C6462A15C12500DD02BA /* Logger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Logger.cpp; sourceTree = "<group>"; };
 		78F6CF2A2A0FFDF3007D706F /* OkulaR */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OkulaR; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F6CF352A1004AD007D706F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		78F6CF372A1004FE007D706F /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../opt/homebrew/Cellar/glfw/3.3.8/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
@@ -53,6 +56,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7892C6432A15B44400DD02BA /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				7892C63E2A15A3D000DD02BA /* Logger.hpp */,
+				7892C6412A15B42B00DD02BA /* Log.hpp */,
+				7892C6442A15B82100DD02BA /* Log.cpp */,
+				7892C6462A15C12500DD02BA /* Logger.cpp */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 		78F6CF212A0FFDF3007D706F = {
 			isa = PBXGroup;
 			children = (
@@ -73,9 +87,8 @@
 		78F6CF2C2A0FFDF3007D706F /* OkulaR */ = {
 			isa = PBXGroup;
 			children = (
+				7892C6432A15B44400DD02BA /* Logger */,
 				78F6CF432A10373A007D706F /* main.cpp */,
-				7892C63A2A15055000DD02BA /* Keyboard.cpp */,
-				7892C63B2A15055000DD02BA /* Keyboard.hpp */,
 			);
 			path = OkulaR;
 			sourceTree = "<group>";
@@ -148,7 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7892C63C2A15055000DD02BA /* Keyboard.cpp in Sources */,
+				7892C6452A15B82100DD02BA /* Log.cpp in Sources */,
+				7892C6472A15C12500DD02BA /* Logger.cpp in Sources */,
 				78F6CF452A10373A007D706F /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
