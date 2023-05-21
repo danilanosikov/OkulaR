@@ -12,7 +12,7 @@ namespace OkulaR{
         buffer.push(temp_log);
     }
     void Logger::CreateLog(Log::Type type, std::string message){
-        CreateLog(type, message, "");
+        CreateLog(type, "", message);
     }
 
 

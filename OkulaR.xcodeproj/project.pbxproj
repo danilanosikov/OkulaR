@@ -59,12 +59,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7890F7312A199E6000ACC3EB /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				7892C6412A15B42B00DD02BA /* Log.hpp */,
+				7892C6442A15B82100DD02BA /* Log.cpp */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		7892C6432A15B44400DD02BA /* Logger */ = {
 			isa = PBXGroup;
 			children = (
+				7890F7312A199E6000ACC3EB /* Log */,
 				7892C63E2A15A3D000DD02BA /* Logger.hpp */,
-				7892C6412A15B42B00DD02BA /* Log.hpp */,
-				7892C6442A15B82100DD02BA /* Log.cpp */,
 				7892C6462A15C12500DD02BA /* Logger.cpp */,
 			);
 			path = Logger;
