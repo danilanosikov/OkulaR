@@ -3,13 +3,9 @@
 
 using namespace OkulaR;
 
-Logger logger_object = Logger(Logger::Mode::ALL);
-static Logger* logger = &logger_object;
-
 int main(){
-    
-    Window okular_main(logger);
-
+    Logger logger(Logger::Mode::NONE);
+    Window okular_main(&logger);
     return 0;
 }
 

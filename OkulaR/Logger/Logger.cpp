@@ -12,7 +12,7 @@ namespace OkulaR{
         buffer.push(temp_log);
     }
     void Logger::CreateLog(Log::Type type, std::string message){
-        CreateLog(type, message, "");
+        CreateLog(type, "", message);
     }
 
 
@@ -23,7 +23,7 @@ namespace OkulaR{
                 while(IsActive())Execute();
             }
         );
-        _thread.detach();
+        Async();
     }
 
     void Logger::Execute(){
@@ -68,12 +68,12 @@ namespace OkulaR{
         }
     }
     void Logger::Set(Mode mode){
-        if (_thread.joinable())_thread.join();
+        Sync();
         
         this->mode = mode;
         CreateLog(Log::Type::LOG, "Logger Runtime", "Logger Mode Has been Changed");
         
-        if(_thread.joinable())_thread.detach();
+        Async();
         
     }
     void Logger::WaitToEnd(){
@@ -112,8 +112,9 @@ namespace OkulaR{
         CreateLog(Log::Type::LOG, "Logger Initialization", "DONE.");
     }
     Logger::~Logger(){
-        if(_thread.joinable()) _thread.join();
-        if(IsActive()) std::cout << "Shutting Down Logger\n";
-        std::cout << "Shutdown Complete. Logger will be no more\n";
+        CreateLog(Log::Type::LOG, "Logger Distruction", "Shutting Down Logger...");
+        WaitToEnd();
+        Sync();
+        if(IsActive()) std::cout << "Shutdown Complete. Logger will be no more\n";
     }
 }
