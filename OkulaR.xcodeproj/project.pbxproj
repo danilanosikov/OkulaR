@@ -11,6 +11,7 @@
 		787468062A128F0100A3BC2A /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 787468052A128F0100A3BC2A /* libGLEW.2.2.0.dylib */; };
 		7892C6452A15B82100DD02BA /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6442A15B82100DD02BA /* Log.cpp */; };
 		7892C6472A15C12500DD02BA /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6462A15C12500DD02BA /* Logger.cpp */; };
+		78DA2F002A18D87900BA6753 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78DA2EFE2A18D87900BA6753 /* Window.cpp */; };
 		78F6CF362A1004AE007D706F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F6CF352A1004AD007D706F /* OpenGL.framework */; };
 		78F6CF382A1004FE007D706F /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F6CF372A1004FE007D706F /* libglfw.3.3.dylib */; };
 		78F6CF452A10373A007D706F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78F6CF432A10373A007D706F /* main.cpp */; };
@@ -35,6 +36,8 @@
 		7892C6412A15B42B00DD02BA /* Log.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Log.hpp; sourceTree = "<group>"; };
 		7892C6442A15B82100DD02BA /* Log.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		7892C6462A15C12500DD02BA /* Logger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Logger.cpp; sourceTree = "<group>"; };
+		78DA2EFE2A18D87900BA6753 /* Window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
+		78DA2EFF2A18D87900BA6753 /* Window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
 		78F6CF2A2A0FFDF3007D706F /* OkulaR */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OkulaR; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F6CF352A1004AD007D706F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		78F6CF372A1004FE007D706F /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../opt/homebrew/Cellar/glfw/3.3.8/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
@@ -67,6 +70,15 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
+		78DA2EFD2A18D86900BA6753 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				78DA2EFE2A18D87900BA6753 /* Window.cpp */,
+				78DA2EFF2A18D87900BA6753 /* Window.hpp */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
 		78F6CF212A0FFDF3007D706F = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +99,7 @@
 		78F6CF2C2A0FFDF3007D706F /* OkulaR */ = {
 			isa = PBXGroup;
 			children = (
+				78DA2EFD2A18D86900BA6753 /* Window */,
 				7892C6432A15B44400DD02BA /* Logger */,
 				78F6CF432A10373A007D706F /* main.cpp */,
 			);
@@ -164,6 +177,7 @@
 				7892C6452A15B82100DD02BA /* Log.cpp in Sources */,
 				7892C6472A15C12500DD02BA /* Logger.cpp in Sources */,
 				78F6CF452A10373A007D706F /* main.cpp in Sources */,
+				78DA2F002A18D87900BA6753 /* Window.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

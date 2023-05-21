@@ -3,7 +3,7 @@
 #include <thread>
 #include <chrono>
 
-namespace Logger{
+namespace OkulaR{
 
     void Logger::CreateLog(Log::Type type, std::string occurance, std::string message){
         if(!IsActive()) return;

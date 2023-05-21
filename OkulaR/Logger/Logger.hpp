@@ -3,7 +3,7 @@
 #include "Log.hpp"
 #include <thread>
 
-namespace Logger{
+namespace OkulaR{
 
     class Logger{
         public:

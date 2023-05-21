@@ -5,7 +5,7 @@
 #include <queue>
 
 
-namespace Logger{
+namespace OkulaR{
 
 
 class Log{
