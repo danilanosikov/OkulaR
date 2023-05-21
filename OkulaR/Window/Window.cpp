@@ -64,7 +64,7 @@ namespace OkulaR{
         glEnable(GL_LINE_STIPPLE);
         glEnable(GL_LINE_SMOOTH);
         
-        while (!glfwWindowShouldClose(body)){
+        while (!glfwWindowShouldClose(body) && !glfwGetKey(body, GLFW_KEY_ESCAPE)){
             // Clear
             glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             glClear(GL_COLOR_BUFFER_BIT);
