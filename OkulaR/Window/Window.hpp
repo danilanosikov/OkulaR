@@ -8,13 +8,13 @@
 #include <string>
 
 #include "Logger.hpp"
+#include "Renderer.hpp"
 
 namespace OkulaR {
 
-typedef void (*callback)();
 struct Window {
     /** A pointer to GLFW Window assosiated with this*/
-    GLFWwindow* body;
+	Renderer renderer = Renderer();
     /** The size */
     unsigned int width, height;
     bool fullscreen;
@@ -23,15 +23,6 @@ struct Window {
     /** A link to logger, which should work in a saparate thread*/
     Logger* logger;
     
-    /** Draw function implemented by user */
-    callback draw = 0;
-    
-    
-    ///@DONE
-    /** Initializes GLFW */
-    void InitializeGLFW();
-    /** Initializes GLEW */
-    void InitializeGLEW();
     /** Creates a GLFWwindow */
     void Create();
     
@@ -41,8 +32,8 @@ struct Window {
     
     
         /**Constructor **/
-        Window(int width = 800, int height = 640, bool fullscreen = true, std::string title = "",Logger* logger = nullptr);
+        Window(int width = 800, int height = 640, bool fullscreen = true, std::string title = "", Logger* logger = nullptr);
         /**Distructor */
-        ~Window();
+		~Window();
     };
 }

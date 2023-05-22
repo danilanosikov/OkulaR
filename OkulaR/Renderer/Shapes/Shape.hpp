@@ -2,20 +2,18 @@
 
 namespace Shape {
 	
-	struct Ponit{
-		float x, y, z;
-		float  colour[4]; // rgba - 1.0f is max
+	struct Point{
+		float position[3];
+		
+		Point(float x = 0, float y = 0, float z = 0){
+			position[0] = x; position[1] = y; position[2] = z;
+		}
 	};
 	
 	struct Triangle{
-		Point* x, y, z;
-	};
-	
-	struct Racktangle{
-		Triangle triangle;
-		
-		Racktangle(triangle);
-		Racktangle(float a, float b, float c);
-		Racktangle(float x, float y, float height, float width);
+		Point points[3];
+		Triangle(Point a, Point b, Point c){
+			points[0] = a; points[1] = b; points[2] = c;
+		}
 	};
 }

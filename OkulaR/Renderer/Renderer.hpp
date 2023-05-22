@@ -1,4 +1,5 @@
 #pragma once
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -7,26 +8,26 @@
 #include <string>
 
 #include "Logger.hpp"
-#include "Window.hpp"
+#include "Shape.hpp"
 
 namespace OkulaR{
 
 struct  Renderer{
-	Window window;
+	GLFWwindow* window;
     Logger* logger = nullptr;
 	
-	void CreateWindow(int width, int haight, bool fullscreen, std::string title);
+	void InitializeGLFW();
+	void InitializeGLEW();
 	
-    void Draw();
-    void DrawTest();
+    void Run();
+	
     void DrawSquare(GLfloat OX, GLfloat OY, GLfloat OZ, GLfloat size);
     void DrawCube(GLfloat centreX, GLfloat centreY, GLfloat centreZ, GLfloat edgelength);
     
-    void DrawTriangle();
-    void DrawCircle();
+    void DrawTriangle(Shape::Triangle* triangle);
     
     
-    Renderer(GLFWwindow* window);
+    Renderer();
     ~Renderer();
 };
 }
