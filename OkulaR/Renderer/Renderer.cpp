@@ -35,10 +35,13 @@ namespace OkulaR{
 	void Renderer::Run(){
 		auto gl_window = this->window;
 		
-		Shape::Point p1(1.0f, -0.5f, 0.0f);
-		Shape::Point p2(0.8f, 0.3f, 0.0f);
-		Shape::Point p3(-0.1f, -0.4f, 0.0f);
-		Shape::Triangle triangle(p1, p2, p3);
+		
+//		Shape::Point p1(-1.0f, -1.0f, 0.0f);
+//		Shape::Point p2(0.0f, 1.0f, 0.0f);
+//		Shape::Point p3(1.0f, -1.0f, 0.0f);
+//		Shape::Triangle triangle(p1, p2, p3);
+		
+		
 		
 		while(!glfwWindowShouldClose(gl_window)){
 			// Clear
@@ -48,10 +51,13 @@ namespace OkulaR{
 			
 			
 			
-			this->DrawTriangle(&triangle);
+			
+			//this->DrawTriangle(&triangle);
+			this->DrawSquare(Shape::Point(0.0f, 0.0f, 0.0f), 0.5);
+			
 			
 			glPushMatrix();
-			glRotatef(1, 1, 1, 1);
+			//glRotatef(1, 0, 0, 1);
 			
 
 			glfwSwapBuffers(gl_window);
@@ -78,6 +84,25 @@ namespace OkulaR{
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 		
 		glDrawArrays(GL_TRIANGLES, 0, 3);
+	}
+	void Renderer::DrawSquare(Shape::Point centre, float side){
+		
+		float shift = side/2;
+		
+		float ox = centre.position[0];
+		float oy = centre.position[1];
+		float oz = centre.position[2];
+		
+		Shape::Point p1(ox - shift, oy - shift, oz);
+		Shape::Point p2(ox + shift, oy + shift, oz);
+		Shape::Point p3(ox + shift, oy - shift, oz);
+		Shape::Point p4(ox - shift, oy + shift, oz);
+		
+		Shape::Triangle trig1(p1, p2, p3);
+		Shape::Triangle trig2(p1, p4, p2);
+		
+		DrawTriangle(&trig1);
+		DrawTriangle(&trig2);
 	}
 	
 	Renderer::Renderer(){

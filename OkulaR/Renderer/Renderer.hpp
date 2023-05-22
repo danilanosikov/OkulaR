@@ -21,7 +21,7 @@ struct  Renderer{
 	
     void Run();
 	
-    void DrawSquare(GLfloat OX, GLfloat OY, GLfloat OZ, GLfloat size);
+    void DrawSquare(Shape::Point centre, float side);
     void DrawCube(GLfloat centreX, GLfloat centreY, GLfloat centreZ, GLfloat edgelength);
     
     void DrawTriangle(Shape::Triangle* triangle);
