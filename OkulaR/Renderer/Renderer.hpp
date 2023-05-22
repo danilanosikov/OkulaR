@@ -21,8 +21,8 @@ struct  Renderer{
 	
     void Run();
 	
-    void DrawSquare(Shape::Point centre, float side);
-    void DrawCube(GLfloat centreX, GLfloat centreY, GLfloat centreZ, GLfloat edgelength);
+    void DrawSquare(Shape::Square square);
+    void DrawCube(Shape::Cube cube);
     
     void DrawTriangle(Shape::Triangle* triangle);
     
