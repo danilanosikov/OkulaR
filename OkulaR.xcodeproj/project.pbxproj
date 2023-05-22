@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		787467FF2A128BA300A3BC2A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787467FE2A128BA300A3BC2A /* GLUT.framework */; };
 		787468062A128F0100A3BC2A /* libGLEW.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 787468052A128F0100A3BC2A /* libGLEW.2.2.0.dylib */; };
+		7890F7452A19D18C00ACC3EB /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7890F7432A19D18C00ACC3EB /* Renderer.cpp */; };
 		7892C6452A15B82100DD02BA /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6442A15B82100DD02BA /* Log.cpp */; };
 		7892C6472A15C12500DD02BA /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7892C6462A15C12500DD02BA /* Logger.cpp */; };
 		78DA2F002A18D87900BA6753 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78DA2EFE2A18D87900BA6753 /* Window.cpp */; };
@@ -30,8 +31,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		78561B522A1B317D0054C626 /* Shape.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shape.hpp; sourceTree = "<group>"; };
 		787467FE2A128BA300A3BC2A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		787468052A128F0100A3BC2A /* libGLEW.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.2.0.dylib; path = ../../../../../opt/homebrew/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib; sourceTree = "<group>"; };
+		7890F7432A19D18C00ACC3EB /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
+		7890F7442A19D18C00ACC3EB /* Renderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
 		7892C63E2A15A3D000DD02BA /* Logger.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Logger.hpp; sourceTree = "<group>"; };
 		7892C6412A15B42B00DD02BA /* Log.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Log.hpp; sourceTree = "<group>"; };
 		7892C6442A15B82100DD02BA /* Log.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
@@ -59,6 +63,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78561B472A1B21820054C626 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				7890F7432A19D18C00ACC3EB /* Renderer.cpp */,
+				7890F7442A19D18C00ACC3EB /* Renderer.hpp */,
+				78561B4B2A1B2B880054C626 /* Shapes */,
+			);
+			path = "\bRenderer";
+			sourceTree = "<group>";
+		};
+		78561B4B2A1B2B880054C626 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				78561B522A1B317D0054C626 /* Shape.hpp */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		7890F7312A199E6000ACC3EB /* Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,9 +93,9 @@
 		7892C6432A15B44400DD02BA /* Logger */ = {
 			isa = PBXGroup;
 			children = (
-				7890F7312A199E6000ACC3EB /* Log */,
 				7892C63E2A15A3D000DD02BA /* Logger.hpp */,
 				7892C6462A15C12500DD02BA /* Logger.cpp */,
+				7890F7312A199E6000ACC3EB /* Log */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -107,9 +129,10 @@
 		78F6CF2C2A0FFDF3007D706F /* OkulaR */ = {
 			isa = PBXGroup;
 			children = (
+				78F6CF432A10373A007D706F /* main.cpp */,
+				78561B472A1B21820054C626 /* Renderer */,
 				78DA2EFD2A18D86900BA6753 /* Window */,
 				7892C6432A15B44400DD02BA /* Logger */,
-				78F6CF432A10373A007D706F /* main.cpp */,
 			);
 			path = OkulaR;
 			sourceTree = "<group>";
@@ -183,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7892C6452A15B82100DD02BA /* Log.cpp in Sources */,
+				7890F7452A19D18C00ACC3EB /* Renderer.cpp in Sources */,
 				7892C6472A15C12500DD02BA /* Logger.cpp in Sources */,
 				78F6CF452A10373A007D706F /* main.cpp in Sources */,
 				78DA2F002A18D87900BA6753 /* Window.cpp in Sources */,

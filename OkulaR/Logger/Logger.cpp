@@ -5,14 +5,12 @@
 
 namespace OkulaR{
 
-    void Logger::CreateLog(Log::Type type, std::string occurance, std::string message){
-        if(!IsActive()) return;
+    void Logger::Record(Log::Type type, std::string occurance, std::string message, Logger* logger){
+        if(logger == nullptr) return;
+        if(!logger->IsActive()) return;
         Log temp_log = Log(type, occurance, message);
-        if(!Approve(&temp_log)) return;
-        buffer.push(temp_log);
-    }
-    void Logger::CreateLog(Log::Type type, std::string message){
-        CreateLog(type, "", message);
+        if(!logger->Approve(&temp_log)) return;
+        logger->buffer.push(temp_log);
     }
 
 
@@ -71,13 +69,14 @@ namespace OkulaR{
         Sync();
         
         this->mode = mode;
-        CreateLog(Log::Type::LOG, "Logger Runtime", "Logger Mode Has been Changed");
+        Record(Log::Type::LOG, "Logger Runtime", "Logger Mode Has been Changed", this);
         
         Async();
         
     }
-    void Logger::WaitToEnd(){
-        if(!buffer.empty()) std::this_thread::sleep_for(std::chrono::milliseconds(buffer.size()));
+    void Logger::WaitToEnd(Logger* logger){
+        if(logger == nullptr) return;
+        if(!logger->buffer.empty()) std::this_thread::sleep_for(std::chrono::milliseconds(logger->buffer.size()));
     }
     std::queue<Log> Logger::GetBuffer(){
         return buffer;
@@ -97,24 +96,26 @@ namespace OkulaR{
         if(_thread.joinable())_thread.join();
     }
     void Logger::Async(){
-        if(_thread.joinable())_thread.detach();
+        if(_thread.joinable()) _thread.detach();
     }
 
-    void Logger::Crash(Log log){
-        CreateLog(log.type, log.occurance,log.message);
-        WaitToEnd();
+    void Logger::Crash(std::string where, std::string error_message, Logger* logger) {
+        if(logger != nullptr){
+            logger->Record(Log::FATAL, where, error_message, logger);
+            Logger::WaitToEnd(logger);
+        }
         throw std::runtime_error("Application Crashed!");
     }
 
     Logger::Logger(Mode mode) : mode(mode) {
-        CreateLog(Log::Type::LOG, "Logger Initialization", "IN PROGRESS...");
+        Record(Log::Type::LOG, "Logger Initialization", "IN PROGRESS...", this);
         Run();
-        CreateLog(Log::Type::LOG, "Logger Initialization", "DONE.");
+        Logger::Record(Log::Type::LOG, "Logger Initialization", "DONE.", this);
     }
     Logger::~Logger(){
-        CreateLog(Log::Type::LOG, "Logger Distruction", "Shutting Down Logger...");
-        WaitToEnd();
         Sync();
+        WaitToEnd();
+        if(IsActive()) std::cout << "Shutting Down Logger...\n";
         if(IsActive()) std::cout << "Shutdown Complete. Logger will be no more\n";
     }
 }

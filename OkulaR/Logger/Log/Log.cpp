@@ -1,6 +1,4 @@
 #include "Log.hpp"
-#include <thread>
-#include <queue>
 
 using namespace OkulaR;
 

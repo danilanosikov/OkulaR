@@ -28,22 +28,20 @@ namespace OkulaR{
         public:
             std::thread _thread;
             // Stashes Log to logging queue;
-            void CreateLog(Log::Type type, std::string occurance, std::string message);
-            // Same, but no occurance location;
-            void CreateLog(Log::Type type, std::string message);
+            static void Record(Log::Type type = Log::LOG, std::string occurance = "", std::string message = "Log Message Empty.", Logger* logger = nullptr);
             // Releases all logs in queue;
             void Flush();
             // Sets Logging Mode;
             void Set(Mode mode);
             std::queue<Log> GetBuffer();
-            void WaitToEnd();
+            static void WaitToEnd(Logger* logger = nullptr);
             // Checks whether logger is logging
             bool IsActive();
         
             void Sync();
             void Async();
         
-            void Crash(Log log);
+            static void Crash(std::string where = "", std::string error_message = "FAILURE!", Logger* logger = nullptr);
         
             Logger(Mode mode);
            ~Logger();
