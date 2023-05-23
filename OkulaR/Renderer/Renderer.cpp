@@ -40,24 +40,16 @@ namespace OkulaR{
 //		Shape::Point p2(0.0f, 1.0f, 0.0f);
 //		Shape::Point p3(1.0f, -1.0f, 0.0f);
 //		Shape::Triangle triangle(p1, p2, p3);
-		
-		
+		glMatrixMode(GL_MODELVIEW);
 		
 		while(!glfwWindowShouldClose(gl_window)){
 			// Clear
 			glClearColor(0.1f, 0.1f, 0.098f, 0.95f);
 			glClear(GL_COLOR_BUFFER_BIT);
 			glClear(GL_DEPTH_BUFFER_BIT);
-			
-			
-			
-			
-			//this->DrawTriangle(&triangle);
-			//this->DrawSquare(Shape::Square(Shape::Point(0.0f, 0.0f, 0.0f), 0.5));
+
 			this->DrawCube(Shape::Cube(Shape::Point(0,0,0), 0.5));
-			
-			glPushMatrix();
-			glRotatef(1, 1, 1, 1);
+			glRotatef(1, 0, 1, 0);
 
 			glfwSwapBuffers(gl_window);
 			glfwPollEvents();
@@ -89,6 +81,8 @@ namespace OkulaR{
 		DrawTriangle(&square.triangle2);
 	}
 	void Renderer::DrawCube(Shape::Cube cube){
+		glPushMatrix();
+		glRotated(20, 1, 0, 0);
 		DrawSquare(Shape::Square(cube.front_face, cube.side));
 		DrawSquare(Shape::Square(cube.back_face, cube.side));
 		
@@ -99,6 +93,8 @@ namespace OkulaR{
 		glRotated(90, 1, 0, 0);
 		DrawSquare(Shape::Square(cube.front_face, cube.side));
 		DrawSquare(Shape::Square(cube.back_face, cube.side));
+		
+		glPopMatrix();
 		
 	}
 	
